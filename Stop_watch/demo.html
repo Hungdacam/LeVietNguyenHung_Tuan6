@@ -10,7 +10,23 @@
             color:teal;
             font-size: 50px;
         }
-        #button{
+        #button_start{
+            border-radius: 10px;
+            border: 1px solid teal;
+            height: 30px;
+            width: 100px;
+            color: teal;
+            
+        }
+        #button_stop{
+            border-radius: 10px;
+            border: 1px solid teal;
+            height: 30px;
+            width: 100px;
+            color: teal;
+            
+        }
+        #button_reset{
             border-radius: 10px;
             border: 1px solid teal;
             height: 30px;
@@ -22,15 +38,17 @@
             text-align: center;
             
         }
-        #watch{
+        /* #watch{
+            color: teal;
+            font-size: 60px;
+        } */
+        #seconds{
             color: teal;
             font-size: 60px;
         }
-        #seconds{
-
-        }
-        #minutes{
-
+        #m-seconds{
+            color: teal;
+            font-size: 60px;
         }
     </style>
 </head>
@@ -39,31 +57,65 @@
     <!-- title -->
     <div id="title"><h1>HUNG STOPWATCH</h1></div>
     <!-- dong ho -->
-    <p id="watch"> 
-        <span id="minutes">00</span>
-        <span>:</span>
+    <p id="watch">  
         <span id="seconds">00</span>
-    </p>
-    
+        <span>:</span>
+        <span id="m-seconds">00</span>
+     </p>
+    <!-- 
+        start.onclick
+        setInterval
+     -->
     <!-- nut -->
-    <button id="button" onclick="start()">Start</button>
-    <script>
-        function start(){
-            alert('Doi xiu code tiep!');
+    <button id="button_start" >Start</button>
+
+    <button id="button_stop" onclick="stop()">Stop</button>
+
+    <button id="button_reset" onclick="reset()">Reset</button>
+    
+     <script>
+        var start=document.getElementById('button_start');
+        var stop=document.getElementById('button_stop');
+        var reset=document.getElementById('button_reset');
+        var seconds=document.getElementById('seconds');
+        var msec=document.getElementById('m-seconds');
+        var sec=00;
+        var ms=00;
+        var Interval;
+        start.onclick=function(){
+            clearInterval(Interval);
+            Interval=setInterval(solve,10);
         }
-    </script>
-    <button id="button" onclick="stop()">Stop</button>
-    <script>
-        function stop(){
-            alert('Doi xiu code tiep!');
+        stop.onclick=function(){
+            clearInterval(Interval);
         }
-    </script>
-    <button id="button" onclick="reset()">Reset</button>
-    <script>
-        function reset(){
-            alert('Doi xiu code tiep!');
+        reset.onclick=function(){
+            clearInterval(Interval);
+            sec="00";
+            ms="00";
+            seconds.innerHTML=sec;
+            msec.innerHTML=ms;
         }
-    </script>
+        function solve (){
+            ms++;
+            if (ms<=9){
+                msec.innerHTML="0"+ms;
+            }
+            if (ms>9){
+                msec.innerHTML=ms;
+            }
+            if (ms>99){
+                console.log("sec");
+                sec++;
+                seconds.innerHTML="0" +sec;
+                ms=0;
+                msec.innerHTML="0"+0;
+            }
+            if (ms>9){
+                seconds.innerHTML=sec;
+            }
+        }
+</script>
     </div>
 </body>
 </html>
