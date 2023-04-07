@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #title{
+            color:teal;
+            font-size: 50px;
+        }
+        #button{
+            border-radius: 10px;
+            border: 1px solid teal;
+            height: 30px;
+            width: 100px;
+            color: teal;
+            
+        }
+        #wrapper{
+            text-align: center;
+            
+        }
+        #watch{
+            color: teal;
+            font-size: 60px;
+        }
+        #seconds{
+
+        }
+        #minutes{
+
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+    <!-- title -->
+    <div id="title"><h1>HUNG STOPWATCH</h1></div>
+    <!-- dong ho -->
+    <p id="watch"> 
+        <span id="minutes">00</span>
+        <span>:</span>
+        <span id="seconds">00</span>
+    </p>
+    
+    <!-- nut -->
+    <button id="button" onclick="start()">Start</button>
+    <script>
+        function start(){
+            alert('Doi xiu code tiep!');
+        }
+    </script>
+    <button id="button" onclick="stop()">Stop</button>
+    <script>
+        function stop(){
+            alert('Doi xiu code tiep!');
+        }
+    </script>
+    <button id="button" onclick="reset()">Reset</button>
+    <script>
+        function reset(){
+            alert('Doi xiu code tiep!');
+        }
+    </script>
+    </div>
+</body>
+</html>
